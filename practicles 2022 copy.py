@@ -11,7 +11,7 @@ def pract2():
     print("""\n\n#Practicle 2
 #Write a program that accepts radius of a circle and prints its area\n""")
     radius = float(input("Enter the radius as meters: "))
-    print(f"Area of circle {radius *2 * 3.14:,} m²")
+    print(f"Area of circle {radius**2 * 3.14:,} m²")
 
 
 def pract3():
