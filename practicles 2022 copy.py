@@ -20,8 +20,17 @@ def pract3():
     subs={"sub1":{}, "sub2":{}, "sub3":{}}
     for i in range(1,4):
         subs[f'sub{i}']['name'] = input(f"Enter {i}st subject's name: ")
-        subs[f'sub{i}']['score'] = input(f"Enter {subs[f'sub{i}']['name']}'s score (out of 100): ")
-    for sub in subs:print(f"{subs[sub]['name']+':':<10} {subs[sub]['score']}%")
+        subs[f'sub{i}']['score'] = float(input(f"Enter {subs[f'sub{i}']['name']}'s score (out of 100): "))
+    avg = perc = 0
+    for sub in subs:
+        avg += subs[sub]['score']
+        perc += subs[sub]['score']
+        print(f"{subs[sub]['name']+':':<10} {subs[sub]['score']}%")
+    avg /= 3
+    perc /= 300
+    perc *= 100 
+    print(f"\n\nAvergae of the three subjects = {avg} \nOverall Percentage: {perc}%")
+    
 
 
 def pract4(): 
@@ -147,19 +156,15 @@ def pract14(array:list=Animals):
         print(animal)
 
 
-import random
 def pract15():
     print("""\n\n#Practicle 15
-#Write a program to create a list namely test having at least 3 integers, 2 floating point numbers and two strings.
-#test=[11, 33,99, 20.25, 95.2,‘Apple’, ‘Pencil’]\n""")
-    with open("words.txt","r") as f:
-        rawList = f.readlines()
-    twoStrings = [random.choice(rawList).replace('\n',''),random.choice(rawList).replace('\n','')]
-    threeInts = [random.randint(1,100),random.randint(1,100),random.randint(1,100)]
-    twoFloats = [random.randint(1,100)/random.randint(1,100),random.randint(1,100)/random.randint(1,100)]
-    test = twoStrings+threeInts+twoFloats
-    random.shuffle(test)
-    print(test)
-
-for i in range(15,16):
+#Write a program to create a list namely test having at least 3 integers, 2 floating point numbers and two strings.\n""")
+    test=[11, 33,99, 20.25, 95.2,'Apple', 'Pencil']
+    for i in range(len(test)):
+        if i == len(test)-2:
+            print(f"Second last item in the list test is {test[i]}")
+            print(f"All the items of the list are {', '.join(f'{_}' for _ in test)}")
+            return
+        print(f"The no.{i+1} item in the list test is {test[i]}")
+for i in range(3,4):
     exec(f"pract{i}()")
