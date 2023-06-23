@@ -1,15 +1,19 @@
 import time, math
 
 def myInput(msg:str=''):
-    print_slow(msg=msg[0:-1],end=' ')
+    print_slow(msg[0:-1],end=' ')
     return input()
-def print_slow(msg:str,*,sep=" ",end='\n'):
+def print_slow(*message:str,sep=" ",end='\n'):
+    msg = " ".join(str(i) for i in message)
     msgs=[msg]
     if "\n" in msg:msgs = msg.split('\n')
     else:msgs = [msg]
     for i in range(len(msgs)):
         msgs[i];outext=''
-        for idx in range(len(msgs[i])):outext=outext + msgs[i][idx];print(outext, end='\r');time.sleep(1/25)
+        for idx in range(len(msgs[i])):
+            outext=outext + msgs[i][idx]
+            print(outext, end='\r')
+            time.sleep(1/25)
         if "\n" in msg:print()
     if "\n" not in msg:print(msg, sep=sep,end=end)
 #Practicle 1
