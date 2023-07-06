@@ -1,3 +1,4 @@
+import re
 from calendar import month_name
 from matplotlib import pyplot as plot
 from practicles_2022_EXTRA_FANCY import print_slow, myInput
