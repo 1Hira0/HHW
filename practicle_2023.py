@@ -36,7 +36,7 @@ def prac3():
         print_slow("Input was invalid")
     
 _4 = """
-Write a program to accept the year and check if it is a leap year or not"""
+Write a program to accept the year and check if it is a leap year or not."""
 def prac4():
     year = int(myInput(f"Enter year: "))
     print_slow(f"{year} is{' not' if year%4 else ''} a leap year")
@@ -44,9 +44,7 @@ def prac4():
 _5 = """
 Write a program to find largest among three integers. Make use of if-else statement"""
 def prac5():
-    a=float(myInput('Enter first number: '))
-    b=float(myInput('Enter second number: '))
-    c=float(myInput('Enter third number: '))
+    a,b,c = map(float, map(myInput, map(lambda n: 'Enter number #'+str(n+1)+': ', range(3))))
     print_slow(f'{a if a>b and a>c else b if b>a and b>c else c}')
 
 _6 = """
@@ -86,12 +84,8 @@ _11 = """
 Write a program to enter a number and check if its prime or not."""
 def prac11():
     num = int(myInput("Enter a natural number: "))
-    for i in range(2, int(num**0.5) + 1):
-        if not num%i:
-            print_slow(f'{num:,} is composite.')
-            return
-    print_slow(f'{num:,} is prime')
-
+    print(f"{num} is{' not ' if not not re.search(regex:=r'^1?$|^(11+?)\1+$', '1'*num) else ' '}a prime.") #supported in py 3.12
+    
 _12 = """
 Write a Program to generate the following patterns using nested loops."""
 def prac12():
