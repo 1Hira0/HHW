@@ -6,8 +6,7 @@ from practicles_2022_EXTRA_FANCY import print_slow, myInput
 _1 = """
 Write a program to input two numbers and swap them."""
 def prac1():
-    first = eval(myInput("Enter the first number: "))
-    second = eval(myInput("Enter the second number: "))
+    first, second = map(float, map(myInput, map(lambda n: 'Enter number #'+str(n+1)+': ', range(3))))
     print_slow(f'{first=}, {second=}')
     second, first = first, second
     print_slow(f'{first=}, {second=}')
@@ -16,9 +15,7 @@ _2 = """
 Write a program to input three numbers and swap them as this: 
  1st number becomes 2nd number, 2nd number becomes 3rd number and 3rd number becomes 1st number"""
 def prac2():
-    first = myInput("Enter the first number: ")
-    second = myInput("Enter the second number: ")
-    third = myInput("Enter the third number: ")
+    first, second, third = map(float, map(myInput, map(lambda n: 'Enter number #'+str(n+1)+': ', range(3))))
     print_slow(f'{first=}, {second=}, {third=}')
     first, second, third = second, third, first
     print_slow(f'{first=}, {second=}, {third=}')
@@ -57,8 +54,7 @@ def prac6():
 _7 = """
 Write a program to input a number and print the sum of digits in the given number."""
 def prac7():
-    num = myInput("Enter the number: ")
-    print_slow(f"{sum([int(i) for i in num if i!='.'])}")
+    print_slow(f"{sum([int(i) for i in myInput("Enter the number: ") if i!='.'])}")
 
 _8 = """
 Write a program to accept a character from the user and display whether it is vowel or consonant.
@@ -85,7 +81,7 @@ _11 = """
 Write a program to enter a number and check if its prime or not."""
 def prac11():
     num = int(myInput("Enter a natural number: "))
-    print(f"{num} is{' not ' if not not re.search(regex:=r'^1?$|^(11+?)\1+$', '1'*num) else ' '}a prime.") #supported in py 3.12
+    print(f"{num} is{' not ' if not not re.search(r'^1?$|^(11+?)\1+$', '1'*num) else ' '}a prime.") #supported in py 3.12
     
 _12 = """
 Write a Program to generate the following patterns using nested loops."""
