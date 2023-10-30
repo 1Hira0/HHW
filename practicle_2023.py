@@ -1,12 +1,13 @@
 import re
 from calendar import month_name
-from matplotlib import pyplot as plot
+from matplotlib import pyplot as plt
+import numpy as np
 from practicles_2022_EXTRA_FANCY import print_slow, myInput
 
 _1 = """
 Write a program to input two numbers and swap them."""
 def prac1():
-    first, second = map(float, map(myInput, map(lambda n: 'Enter number #'+str(n+1)+': ', range(3))))
+    first, second = map(float, map(myInput, map(lambda n: 'Enter number #'+str(n+1)+': ', range(2))))
     print_slow(f'{first=}, {second=}')
     second, first = first, second
     print_slow(f'{first=}, {second=}')
@@ -42,7 +43,7 @@ def prac4():
 _5 = """
 Write a program to find largest among three integers. Make use of if-else statement"""
 def prac5():
-    a,b,c = map(float, map(myInput, map(lambda n: 'Enter number #'+str(n+1)+': ', range(3))))
+    a,b,c = map(float, map(myInput, map(lambda n: f'Enter number #{n+1}: ', range(3))))
     print_slow(f'{a if a>b and a>c else b if b>a and b>c else c}')
 
 _6 = """
@@ -81,12 +82,30 @@ _11 = """
 Write a program to enter a number and check if its prime or not."""
 def prac11():
     num = int(myInput("Enter a natural number: "))
-    print(f"{num} is{' not ' if not not re.search(r'^1?$|^(11+?)\1+$', '1'*num) else ' '}a prime.") #supported in py 3.12
+    print(f"{num} is{' not' if not not re.search(r'^1?$|^(11+?)\1+$', '1'*num) else ''} a prime.") #supported in py 3.12
     
 _12 = """
-Write a Program to generate the following patterns using nested loops."""
+Write a Program to generate the following patterns using nested loops.
+*              1             A
+**             12            AB"""
 def prac12():
-    ...# what 'following' patterns?
+    nRows = int(myInput("Enter the number of rows: "))
+    alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    print_slow("Pattern 1")
+    for i in range(1,nRows+1):
+        print_slow("*"*i)
+    
+    print_slow("pattern 2")
+    pattern = ''
+    for i in range(1,nRows+1):
+        pattern = pattern + str(i)
+        print_slow(pattern)
+    
+    print_slow("Pattern 3")
+    pattern = ''
+    for i in range(nRows):
+        pattern = pattern + alpha[i]
+        print_slow(pattern)
 
 _13 = """
 Write a program to find sum of series : s=1+x+x²+x³+x⁴…+xⁿ"""
@@ -94,7 +113,7 @@ def prac13():
     n = int(myInput('Enter a natural number(n): '))
     x = float(myInput('Enter an integer(x): '))
     if n>=0 and x!=1:
-        print_slow(f"{x**n - 1 / (x - 1)}")
+        print_slow(f"{1 + (x*(x**n - 1))/(x-1)}")
     else: print_slow("n can't be negative and x can't be 1")
 
 _14 = """
@@ -110,17 +129,19 @@ def prac14():
 _15 = """
 Write a program in python to visualization plots bar and pie chart using matplotlib library."""
 def prac15():
-    for_ = int(myInput("Enter the number of items in the data to be graphed: "))
-    bottom,height = [],[]
-    for i in range(1,for_+1):
-        bottom.append(myInput(f"Name of the {i}{'st' if str(i).endswith('1') else 'nd' if str(i).endswith('2') else 'rd' if str(i).endswith('3') else 'th'} item: "))
-        height.append(eval(myInput(f"Value of '{bottom[i-1]}': ")))
-    plot.bar(bottom, height)
-    plot.ylim(ymax=int(myInput('Height limit: ')))
-    plot.xlabel(myInput("Bottom layer label: "))
-    plot.ylabel(myInput("Left layer label: "))
-    plot.title(myInput("Title: "))
-    plot.show()
-for i in range(1,16):
+    data = {'Hindi':70, 'Eng':72, 'Math':75, 'Science':70, 'SST':60, 'AI':45}
+    mylabels = list(data.keys())
+    marks = list(data.values())
+    plt.subplot(121)
+    plt.bar(mylabels, marks)
+    plt.ylim(ymax=80)
+    plt.xlabel('Subjects')
+    plt.xlim(xmax=6)
+    plt.ylabel("score")
+    plt.suptitle("Marksheet")
+    plt.subplot(122)
+    plt.pie(np.array(marks), labels=mylabels)
+    plt.show()
+for i in range(12,13):
     print_slow((f'{i}. {eval(f"_{i}")[1:]}'))
-    exec(f"prac{i}()")
+    exec(f"prac{i}()");exec(f"prac{i}()")
