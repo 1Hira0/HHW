@@ -106,7 +106,11 @@ def prac5():
 '''vi) To calculate EMI for the given Amount, Period and Interest.'''
 
 def prac6():
-     pass
+    p = float(input("Enter pricipal amount: "))
+    r = float(input("Enter rate(out of 100): "))
+    n = float(input("Enter time period: "))
+    emi = p * r * (1+r)^n/ ((1+r)^n-1)
+    print('EMI =', emi)
 
 
 '''vii) To calculate tax - GST Tax as per the following category of commodities and
@@ -117,7 +121,14 @@ Motor Vehicles. 10%
 Others. 15%'''
 
 def prac7():
-    pass
+    price = int(input("Enter price: "))
+    fc = input('Food Category: ')
+    gst = 0.15 * price
+    if fc.lower() == 'food & beverages':
+        gst = 0.05 * price
+    elif fc == 'Motor vehicles':
+        gst = 0.1 * price
+    print("GST =", gst)
 
 
 '''viii) To find the largest and smallest numbers in a list.'''
