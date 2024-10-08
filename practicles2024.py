@@ -165,3 +165,4 @@ def prac10():
     s = 0
     for i in range(1, n+1):
         s += i**2
+    print('Sum of squars of the first natural numbers till n is', s)
