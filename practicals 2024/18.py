@@ -37,4 +37,4 @@ Note: Combinations are allowed for multiple options - snx gives all\n""")
     if 'x' in c:
         print("Maximum =", x)
     if not 'snx'.strip(c) :
-        break
+        break 

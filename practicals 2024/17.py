@@ -1,5 +1,5 @@
 print("Write a menu driven program in Python to print the grade of a student based on the marks. Have minimum 5 grade levels.")
-
+ 
 #initialisation
 mm = 0
 m = {'marks':{}, 'total':0}
@@ -25,14 +25,14 @@ Please choose from the following options of your choice:-
 
     #calc percentage
     elif c == '3':
-        if mm or m['marks']:
-            for i in m['marks'].values():
-                m['total'] += i
-            m['total'] = m['total']*100/(mm*len(m['marks']))
-            g = chr(75 - (int(-(m['total']//-10))))
-            print('grade =', g)
-        else:
+        if not mm or m['marks']:
             print(f"{'Maximum marks' if not mm else 'Subject Marks'} not set")
+            continue
+        for i in m['marks'].values():
+            m['total'] += i
+        m['total'] = m['total']*100/(mm*len(m['marks']))
+        g = chr(75 - (int(-(m['total']//-10))))
+        print('grade =', g)
 
     else:
         break

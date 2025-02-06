@@ -4,7 +4,7 @@ letters, number).
 ***     A B      22 
 *****   A B C    333 
         A B C D  4444""")
-while True:
+while True: 
 	c = input("""Menu->
 	Please choose the number from the following options of your choice:-
 	(1). *       (2).A        (3).1 

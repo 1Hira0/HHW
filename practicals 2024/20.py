@@ -1,5 +1,5 @@
 print("Write a menu driven program in Python to print the Fibonacci series up to specified terms.")
-
+n = ''
 while True:
     c = input("""Menu->
 Please choose from the following options of your choice:-
@@ -10,6 +10,9 @@ Please choose from the following options of your choice:-
     if c == '1':
         n = int(input('Enter number of terms: '))
     elif c == '2':
+        if n =='':
+            print('Number of terms not set')
+            continue
         old = cur = 0
         nxt = 1
         if n < 0:print("Incorrect input")
