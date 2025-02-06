@@ -36,5 +36,5 @@ Note: Combinations are allowed for multiple options - snx gives all\n""")
         print('Minumun =', n)
     if 'x' in c:
         print("Maximum =", x)
-    if not 'snx'.strip(c) :
+    if c.replace('s', '').replace('x', '').replace('n', ''):
         break 

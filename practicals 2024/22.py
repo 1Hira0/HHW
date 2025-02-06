@@ -39,5 +39,5 @@ Note: Combinations are allowed for multiple options - apr gives all\n""")
             print('Is palindrome')
         else:
             print('Is not palindrome')
-        if not 'apr'.strip(c) :
+    if c.replace('a', '').replace('p', '').replace('r', '') :
             break

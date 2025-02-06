@@ -29,5 +29,5 @@ while True:
 			for j in range(1, i+1):
 				print(i, end='')
 			print()
-	if '123'.strip(c):
+	if c.replace('1', '').replace('2', '').replace('3', ''):
 		break

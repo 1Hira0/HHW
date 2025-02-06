@@ -11,13 +11,11 @@ while True:
         anything else to exit
     Note: Combinations are allowed for 2 options - maxmin gives both\n""")
 
-    print('Enter the numbers 1 by 1. Enter an alphabet/symbol when you are done.')
     if 'set' in c:
-        while True:
-            inp = input("Enter #"+str(it)+" no.: ")
-            if not inp.replace('.', '').isnumeric():
-                break
-            l.append(float(inp))
+        n = int(input("Enter no of elements: "))
+        for i in range(n):
+            inp = input(f'Enter #{i+1} element: ')
+            l.append(inp)
             it+=1
         n = x = l[0]
         for i in l:
@@ -32,5 +30,5 @@ while True:
         print('Minumun =', n)
     if 'max' in c:
         print("Maximum =", x)
-    if not c in 'setmaxmin' :
+    if c.replace('set', '').replace('min', '').replace('max', '') :
         break
