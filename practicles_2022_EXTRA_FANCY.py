@@ -16,6 +16,9 @@ def print_slow(*message:str,sep=" ",end='\n'):
             time.sleep(1/25)
         if "\n" in msg:print()
     if "\n" not in msg:print(msg, sep=sep,end=end)
+
+
+print_slow("Hello worldHello worldHello worldHello worldHello world")
 #Practicle 1
 #Write a progrm to input a "Welcome" message and display it
 def pract1():name = myInput("Enter your name: "); print_slow(f"Welcome {name}!")
